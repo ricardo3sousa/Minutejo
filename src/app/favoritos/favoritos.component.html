@@ -1,0 +1,28 @@
+
+
+<ng-container *ngIf="favs.length == 0">
+    <div class="noFavs">
+        <span class="label-fav">Nenhum artigo encontrado</span>
+    </div>
+</ng-container>
+
+<ng-container *ngFor="let item of favs">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <img class="image" src="{{item.urlToImage}}">
+            </div>
+            <div class="card-content">
+                <p class="date">{{item.publishedAt | slice:0:10}}</p>
+                <h3 class="title">{{item.title}}</h3>
+                <br>
+                <br>
+                <p class="text">
+                    {{item.content | slice:0:261}}
+                </p>
+                <br>
+                <span class="footer" (click)="addFav(item)">Remover dos favoritos</span>
+            </div>
+        </div>
+    </div>
+</ng-container>
